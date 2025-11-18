@@ -1,5 +1,4 @@
 package s27684.q1;
-package s27684.q1;
 
 public class Bill extends Treatment {
     protected double doctorFee;

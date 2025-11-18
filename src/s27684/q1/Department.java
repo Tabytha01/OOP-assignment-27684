@@ -1,9 +1,4 @@
 package s27684.q1;
-
-public class Department {
-}
-package s27684.q1;
-
 public class Department extends Hospital {
     private String departmentName;
     private String departmentCode;
