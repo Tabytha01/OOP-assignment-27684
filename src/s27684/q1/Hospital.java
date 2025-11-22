@@ -1,29 +1,25 @@
 package s27684.q1;
 
-public final class HospitalRecord extends Bill {
+public class Hospital extends Entity {
+    private String hospitalName;
+    private String address;
+    private String phoneNumber;
+    private String email;
 
-    public HospitalRecord(int id, String createdDate, String updatedDate,
-                          String hospitalName, String address, String phoneNumber, String email,
-                          String departmentName, String departmentCode, String doctorName,
-                          String specialization, String doctorEmail, String doctorPhone,
-                          String nurseName, String shift, int yearsOfExperience,
-                          String patientName, int age, String gender, String contactNumber,
-                          String admissionDate, String roomNumber, double roomCharges,
-                          String diagnosis, String treatmentGiven, double treatmentCost,
-                          double doctorFee, double medicineCost)
+    public Hospital(int id, String createdDate, String updatedDate,
+                    String hospitalName, String address, String phoneNumber, String email)
             throws HospitalDataException {
 
-        super(id, createdDate, updatedDate, hospitalName, address, phoneNumber, email,
-                departmentName, departmentCode, doctorName, specialization,
-                doctorEmail, doctorPhone, nurseName, shift, yearsOfExperience,
-                patientName, age, gender, contactNumber,
-                admissionDate, roomNumber, roomCharges,
-                diagnosis, treatmentGiven, treatmentCost,
-                doctorFee, medicineCost);
-    }
+        super(id, createdDate, updatedDate);
 
-    public double generateBill() {
-        return totalBill;
+        if (phoneNumber.length() != 10)
+            throw new HospitalDataException("Phone number must be 10 digits");
+        if (!email.contains("@"))
+            throw new HospitalDataException("Invalid email format");
+
+        this.hospitalName = hospitalName;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
     }
 }
-

@@ -1,30 +1,28 @@
 package s27684.q1;
 
-import java.util.Scanner;
+public final class HospitalRecord extends Bill {
 
-public class Q1Main {
-    public static void main(String[] args) {
+    public HospitalRecord(int id, String createdDate, String updatedDate,
+                          String hospitalName, String address, String phoneNumber, String email,
+                          String departmentName, String departmentCode, String doctorName,
+                          String specialization, String doctorEmail, String doctorPhone,
+                          String nurseName, String shift, int yearsOfExperience,
+                          String patientName, int age, String gender, String contactNumber,
+                          String admissionDate, String roomNumber, double roomCharges,
+                          String diagnosis, String treatmentGiven, double treatmentCost,
+                          double doctorFee, double medicineCost)
+            throws HospitalDataException {
 
-        Scanner sc = new Scanner(System.in);
+        super(id, createdDate, updatedDate, hospitalName, address, phoneNumber, email,
+                departmentName, departmentCode, doctorName, specialization,
+                doctorEmail, doctorPhone, nurseName, shift, yearsOfExperience,
+                patientName, age, gender, contactNumber,
+                admissionDate, roomNumber, roomCharges,
+                diagnosis, treatmentGiven, treatmentCost,
+                doctorFee, medicineCost);
+    }
 
-        try {
-            HospitalRecord record = new HospitalRecord(
-                    1, "2025-01-01", "2025-01-01",
-                    "Kigali Hospital", "Kigali", "0788888888", "hospital@example.com",
-                    "General", "GEN",
-                    "Dr. John", "Surgeon", "dr.john@example.com", "0799999999",
-                    "Nurse Mary", "Day", 5,
-                    "Patient A", 30, "Male", "0780000000",
-                    "2025-01-01", "101", 50000,
-                    "Flu", "Medicine", 15000,
-                    20000, 10000
-            );
-
-            System.out.println("Final Bill: " + record.generateBill());
-            System.out.println("StudentID: 27684");
-
-        } catch (HospitalDataException e) {
-            System.out.println("ERROR: " + e.getMessage());
-        }
+    public double generateBill() {
+        return totalBill;
     }
 }

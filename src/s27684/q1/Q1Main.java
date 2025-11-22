@@ -1,7 +1,7 @@
 package s27684.q1;
 import java.util.Scanner;
 
-public class Mainq1 {
+public class Q1Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
