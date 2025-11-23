@@ -1,20 +1,22 @@
 package s27684.q2;
 
 public class School extends Entity {
-    private String schoolName;
-    private String address;
-    private String phoneNumber;
-    private String email;
+    protected String schoolName;
+    protected String address;
+    protected String phoneNumber;
+    protected String email;
 
     public School(int id, String createdDate, String updatedDate,
-                  String schoolName, String address,
-                  String phoneNumber, String email)
-            throws SchoolDataException {
+                  String schoolName, String address, String phoneNumber, String email)
+            throws ResultException {
 
         super(id, createdDate, updatedDate);
 
-        if (!email.contains("@")) throw new SchoolDataException("Invalid email format");
-        if (phoneNumber.length() != 10) throw new SchoolDataException("Phone number must be 10 digits");
+        if (!phoneNumber.matches("[0-9]{10}"))
+            throw new ResultException("Invalid phone number");
+
+        if (!email.contains("@"))
+            throw new ResultException("Invalid email");
 
         this.schoolName = schoolName;
         this.address = address;

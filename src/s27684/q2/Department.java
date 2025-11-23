@@ -1,22 +1,20 @@
 package s27684.q2;
 
 public class Department extends School {
-    private String departmentName;
-    private String departmentCode;
+    protected String departmentName;
+    protected String departmentCode;
 
     public Department(int id, String createdDate, String updatedDate,
-                      String schoolName, String address,
-                      String phoneNumber, String email,
+                      String schoolName, String address, String phoneNumber, String email,
                       String departmentName, String departmentCode)
-            throws SchoolDataException {
+            throws ResultException {
 
         super(id, createdDate, updatedDate, schoolName, address, phoneNumber, email);
 
-        if (departmentCode.length() < 3)
-            throw new SchoolDataException("Department code must be at least 3 characters");
+        if (departmentCode.length() < 3 || !departmentCode.matches("[A-Za-z0-9]+"))
+            throw new ResultException("Invalid department code");
 
         this.departmentName = departmentName;
         this.departmentCode = departmentCode;
     }
 }
-

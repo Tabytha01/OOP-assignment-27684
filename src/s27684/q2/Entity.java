@@ -1,19 +1,17 @@
 package s27684.q2;
 
 public class Entity {
-    private int id;
-    private String createdDate;
-    private String updatedDate;
+    protected int id;
+    protected String createdDate;
+    protected String updatedDate;
 
-    public Entity(int id, String createdDate, String updatedDate) throws SchoolDataException {
-        if (id <= 0) throw new SchoolDataException("ID must be greater than 0");
-        if (createdDate == null || createdDate.isEmpty() ||
-                updatedDate == null || updatedDate.isEmpty())
-            throw new SchoolDataException("Dates cannot be empty");
+    public Entity(int id, String createdDate, String updatedDate) throws ResultException {
+        if (id <= 0) throw new ResultException("ID must be > 0");
+        if (createdDate.isEmpty() || updatedDate.isEmpty())
+            throw new ResultException("Dates cannot be empty");
 
         this.id = id;
         this.createdDate = createdDate;
         this.updatedDate = updatedDate;
     }
 }
-
